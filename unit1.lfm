@@ -1,0 +1,318 @@
+object Form1: TForm1
+  Left = 441
+  Height = 353
+  Top = 250
+  Width = 566
+  Caption = 'LazBundleTool'
+  ClientHeight = 353
+  ClientWidth = 566
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 353
+    Top = 0
+    Width = 566
+    ActivePage = TabSheet1
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Convert'
+      ClientHeight = 325
+      ClientWidth = 558
+      object LabeledEditAAB: TLabeledEdit
+        Left = 8
+        Height = 23
+        Top = 32
+        Width = 456
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 456
+        EditLabel.Caption = 'AAB file path'
+        TabOrder = 0
+      end
+      object Button6: TButton
+        Left = 472
+        Height = 25
+        Top = 30
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Browse'
+        TabOrder = 1
+        OnClick = Button6Click
+      end
+      object cbxSig: TComboBox
+        Left = 8
+        Height = 23
+        Top = 88
+        Width = 540
+        Anchors = [akTop, akLeft, akRight]
+        ItemHeight = 15
+        ReadOnly = True
+        TabOrder = 2
+        TextHint = 'Choose your keystore'
+      end
+      object LabeledEditOutput: TLabeledEdit
+        Left = 8
+        Height = 23
+        Top = 138
+        Width = 456
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 456
+        EditLabel.Caption = 'Output file path'
+        TabOrder = 3
+      end
+      object Button7: TButton
+        Left = 473
+        Height = 25
+        Top = 136
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Browse'
+        TabOrder = 4
+        OnClick = Button7Click
+      end
+      object ckbSign: TCheckBox
+        Left = 8
+        Height = 19
+        Top = 64
+        Width = 60
+        Caption = 'Sign file'
+        TabOrder = 5
+      end
+      object Convert: TButton
+        Left = 472
+        Height = 25
+        Top = 208
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Convert'
+        TabOrder = 6
+        OnClick = ConvertClick
+      end
+      object editOptPara: TEdit
+        Left = 8
+        Height = 23
+        Top = 176
+        Width = 540
+        Anchors = [akTop, akLeft, akRight]
+        TabOrder = 7
+        TextHint = 'Optional parameter'
+      end
+      object log: TMemo
+        Left = 8
+        Height = 82
+        Top = 240
+        Width = 545
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Lines.Strings = (
+          'Log'
+        )
+        ReadOnly = True
+        ScrollBars = ssAutoVertical
+        TabOrder = 8
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Settings'
+      ClientHeight = 325
+      ClientWidth = 558
+      object LabeledEditBundleTool: TLabeledEdit
+        Left = 8
+        Height = 23
+        Top = 32
+        Width = 456
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 456
+        EditLabel.Caption = 'BundleTool Jar path'
+        TabOrder = 0
+      end
+      object Button1: TButton
+        Left = 472
+        Height = 25
+        Top = 30
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Browse'
+        TabOrder = 1
+        OnClick = Button1Click
+      end
+      object Button2: TButton
+        Left = 472
+        Height = 25
+        Top = 296
+        Width = 75
+        Anchors = [akRight, akBottom]
+        Caption = 'Save'
+        TabOrder = 2
+        OnClick = Button2Click
+      end
+      object LabeledEditJVM: TLabeledEdit
+        Left = 8
+        Height = 23
+        Top = 82
+        Width = 456
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 456
+        EditLabel.Caption = 'Java executable'
+        TabOrder = 3
+        Text = 'java'
+      end
+      object Button8: TButton
+        Left = 472
+        Height = 25
+        Top = 80
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Browse'
+        TabOrder = 4
+        OnClick = Button8Click
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Signature'
+      ClientHeight = 325
+      ClientWidth = 558
+      object kstoreList: TListBox
+        Left = 8
+        Height = 312
+        Top = 8
+        Width = 280
+        Anchors = [akTop, akLeft, akBottom]
+        ItemHeight = 0
+        TabOrder = 0
+        OnSelectionChange = kstoreListSelectionChange
+      end
+      object kstorePath: TLabeledEdit
+        Left = 296
+        Height = 23
+        Top = 24
+        Width = 176
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 176
+        EditLabel.Caption = 'Keystore Path'
+        TabOrder = 1
+      end
+      object Button3: TButton
+        Left = 480
+        Height = 25
+        Top = 24
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Browse'
+        TabOrder = 2
+        OnClick = Button3Click
+      end
+      object kstorePass: TLabeledEdit
+        Left = 296
+        Height = 23
+        Top = 72
+        Width = 259
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 259
+        EditLabel.Caption = 'Keystore password'
+        TabOrder = 3
+      end
+      object kstoreKAlias: TLabeledEdit
+        Left = 296
+        Height = 23
+        Top = 120
+        Width = 259
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 259
+        EditLabel.Caption = 'Key alias'
+        TabOrder = 4
+      end
+      object kstoreKPass: TLabeledEdit
+        Left = 299
+        Height = 23
+        Top = 168
+        Width = 259
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 259
+        EditLabel.Caption = 'Key password'
+        TabOrder = 5
+      end
+      object Button4: TButton
+        Left = 480
+        Height = 25
+        Top = 248
+        Width = 78
+        Anchors = [akTop, akRight]
+        Caption = 'Save'
+        TabOrder = 6
+        OnClick = Button4Click
+      end
+      object Button5: TButton
+        Left = 299
+        Height = 25
+        Top = 248
+        Width = 75
+        Anchors = [akTop, akRight]
+        Caption = 'Delete Sel'
+        TabOrder = 7
+        OnClick = Button5Click
+      end
+      object kstoreName: TLabeledEdit
+        Left = 299
+        Height = 23
+        Top = 216
+        Width = 259
+        Anchors = [akTop, akLeft, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 259
+        EditLabel.Caption = 'Human-readable name'
+        TabOrder = 8
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Jar file|*.jar'
+    Left = 464
+  end
+  object OpenDialog2: TOpenDialog
+    Filter = 'JKS File|*.jks'
+    Left = 408
+  end
+  object OpenDialog3: TOpenDialog
+    Filter = 'AAB File|*.aab'
+    Left = 344
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'APKS File|*.apks'
+    Left = 272
+  end
+  object Process1: TProcess
+    Active = False
+    Options = [poWaitOnExit, poUsePipes, poStderrToOutPut]
+    Priority = ppNormal
+    StartupOptions = []
+    ShowWindow = swoNone
+    WindowColumns = 0
+    WindowHeight = 0
+    WindowLeft = 0
+    WindowRows = 0
+    WindowTop = 0
+    WindowWidth = 0
+    FillAttribute = 0
+    InputDescriptor.IOType = iotPipe
+    InputDescriptor.FileWriteMode = fwmTruncate
+    OutputDescriptor.IOType = iotPipe
+    OutputDescriptor.FileWriteMode = fwmTruncate
+    ErrorDescriptor.IOType = iotDefault
+    ErrorDescriptor.FileWriteMode = fwmTruncate
+    Left = 184
+  end
+  object OpenDialog4: TOpenDialog
+    Filter = 'Java Win32 Executable|java.exe|Java Binary|java'
+    Left = 520
+  end
+end
